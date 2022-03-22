@@ -116,7 +116,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
   ) {
     return next()
   } else {
-    next({ name: 'account' })
+    next({ name: 'inventory_deliver_voucher' })
   }
   // else {
   //   if (authRequired && routeFrom.name !== 'login') {

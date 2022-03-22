@@ -3,14 +3,14 @@
     <template v-slot:breadcrumb>
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
-          <a-breadcrumb-item >Quản lý kho thẻ</a-breadcrumb-item>
-          <a-breadcrumb-item :class="'active'">Quản lý phiếu xuất </a-breadcrumb-item>
+          <a-breadcrumb-item >Quản lý kho vé</a-breadcrumb-item>
+          <a-breadcrumb-item :class="'active'">Quản lý phiếu xuất vé</a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
       </div>
     </template>
     <div style="margin-top: 5px">
-      <a-card title="Thông tin phiếu xuất">
+      <a-card title="Thông tin phiếu xuất vé">
         <a-form-model
           :model="form"
           :label-col="labelCol"
@@ -24,7 +24,6 @@
                 prop="tram"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  placeholder="Chọn đơn vị"
                   v-model="form.tram"
                   :disabled="true"
                 >
@@ -37,16 +36,13 @@
                 label="Số phiếu"
                 prop="sophieu"
                 style="margin-bottom: 20px!important;">
-                <a-input
-                  placeholder="Nhập số phiếu"
-                  v-model="form.sophieu"></a-input>
+                <a-input v-model="form.sophieu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Phương thức"
                 prop="phuongthuc"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  placeholder="Chọn phương thức"
                   v-model="form.phuongthuc"
                 >
                   <a-select-option :key="'all'" :value="'all'">
@@ -62,13 +58,12 @@
                 prop="nguoilap"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  placeholder="Chọn người lập"
                   v-model="form.nguoilap"
                 >
                   <a-select-option :key="'all'" :value="'all'">
                     -- Tất cả --
                   </a-select-option>
-                  <a-select-option v-for="item in lsNguoinhan" :key="item.value" :value="item.value">
+                  <a-select-option v-for="item in lsNguoilap" :key="item.value" :value="item.value">
                     {{ item.name }}
                   </a-select-option>
                 </a-select>
@@ -103,16 +98,13 @@
                 label="Số chứng từ"
                 prop="sochungtu"
                 style="margin-bottom: 20px!important;">
-                <a-input
-                  placeholder="Nhập số chứng từ"
-                  v-model="form.sochungtu"></a-input>
+                <a-input v-model="form.sochungtu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Ca"
                 prop="ca"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  placeholder="Chọn ca"
                   v-model="form.ca"
                 >
                   <a-select-option :key="'all'" :value="'all'">
@@ -128,7 +120,6 @@
                 prop="xuatden"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  placeholder="Chọn xuất đến"
                   v-model="form.xuatden"
                 >
                   <a-select-option :key="'all'" :value="'all'">
@@ -151,7 +142,7 @@
           </a-row>
         </a-form-model>
       </a-card>
-      <a-card title="Danh sách phiếu xuất">
+      <a-card title="Danh sách phiếu xuất vé">
         <div slot="extra">
           <a-button class="ant-btn-success">Excel</a-button>
         </div>
@@ -195,7 +186,7 @@
           </a-col>
         </a-row>
       </a-card>
-      <a-card title="Chi tiết phiếu xuất">
+      <a-card title="Chi tiết phiếu xuất vé">
         <a-row :gutter="16" type="flex">
           <a-col :span="24">
             <a-table
@@ -291,7 +282,7 @@ export default {
           name: 'Xuất cho trạm khác'
         }
       ],
-      lsNguoinhan: [
+      lsNguoilap: [
         {
           value: '1',
           name: 'Hoàng My'
@@ -334,22 +325,40 @@ export default {
         {
           rowIndex: '1',
           tram: 'Trung tâm điều hành',
-          sophieu: 'PX20022021010',
-          sochungtu: '765628222',
-          ngaylap: '2021-02-22',
-          nguoilap: 'Đỗ Thanh Hoa',
-          nguoigiao: 'Ngô Lan Anh',
-          xuatden: 'Hà Thanh Vân - TB',
+          sophieu: 'PX2900122000',
+          sochungtu: '98088121',
+          ngaylap: '2021-02-20',
+          nguoilap: 'Nguyễn Hạnh',
+          nguoigiao: 'Hoàng Tôn',
+          xuatden: 'Hà Thanh Vân',
           ca: '2',
-          phuongthuc: 'Xuất thẻ cho nhân viên',
+          phuongthuc: 'Xuất vé cho trạm',
           ghichu: ''
         }
+        // {
+        //   rowIndex: '2',
+        //   tram: 'Trung tâm điều hành',
+        //   sophieu: 'PN20022022001',
+        //   sochungtu: '123456789',
+        //   ngaylap: '2021-02-20',
+        //   nguoilap: 'Nguyễn Hạnh',
+        //   nguoigiao: 'Hoàng My',
+        //   xuatden: 'Hà Thanh Vân',
+        //   ca: '2',
+        //   phuongthuc: 'Nhập thẻ mới từ trung tâm',
+        //   ghichu: ''
+        // }
       ],
       dataDetail: [
         {
           rowIndex: '1',
-          thietbi: 'Thẻ IC',
-          soluong: '5,000'
+          lotrinh: 'Trạm A - Trạm B',
+          loaive: 'Vé lượt loại 2',
+          menhgia: '1,000',
+          kyhieu: 'TC01/02',
+          tuserial: '0000001',
+          denserial: '0001000',
+          soluong: '1,000'
         }
       ]
     }

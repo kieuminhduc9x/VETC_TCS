@@ -21,7 +21,7 @@ export default [
     scopedSlots: { customRender: 'tram' },
     align: 'left',
     ellipsis: true,
-    width: 180
+    width: 150
   },
   {
     title: 'Số phiếu',
@@ -45,7 +45,7 @@ export default [
     scopedSlots: { customRender: 'ngaylap' },
     align: 'center',
     ellipsis: true,
-    width: 120
+    width: 180
   },
   {
     title: 'Người lập',
@@ -53,7 +53,7 @@ export default [
     scopedSlots: { customRender: 'nguoilap' },
     align: 'left',
     ellipsis: true,
-    width: 120
+    width: 180
   },
   {
     title: 'Người nhận',

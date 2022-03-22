@@ -11,7 +11,7 @@ export default [
     title: 'Ngày chốt',
     dataIndex: 'ngaychot',
     scopedSlots: { customRender: 'ngaychot' },
-    align: 'left',
+    align: 'center',
     ellipsis: true,
     width: 120
   },
@@ -32,7 +32,7 @@ export default [
     width: 120
   },
   {
-    title: 'Nhập từ trung tâm',
+    title: 'Nhập từ NCC',
     dataIndex: 'nhaptutrungtam',
     scopedSlots: { customRender: 'nhaptutrungtam' },
     align: 'right',
@@ -40,7 +40,7 @@ export default [
     width: 120
   },
   {
-    title: 'Nhập trả kho',
+    title: 'Nhập từ trạm',
     dataIndex: 'nhaptrakho',
     scopedSlots: { customRender: 'nhaptrakho' },
     align: 'right',
@@ -48,7 +48,7 @@ export default [
     width: 120
   },
   {
-    title: 'Xuất cho nhân viên',
+    title: 'Xuất cho trạm',
     dataIndex: 'xuatchonhanvien',
     scopedSlots: { customRender: 'xuatchonhanvien' },
     align: 'right',
@@ -56,17 +56,9 @@ export default [
     width: 120
   },
   {
-    title: 'Xuất cho trạm khác',
+    title: 'Xuất trả NCC',
     dataIndex: 'xuatchotramkhac',
     scopedSlots: { customRender: 'xuatchotramkhac' },
-    align: 'right',
-    ellipsis: true,
-    width: 120
-  },
-  {
-    title: 'Xuất trả trung tâm',
-    dataIndex: 'xuattratrungtam',
-    scopedSlots: { customRender: 'xuattratrungtam' },
     align: 'right',
     ellipsis: true,
     width: 120

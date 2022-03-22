@@ -3,7 +3,7 @@
     <template v-slot:breadcrumb>
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
-          <a-breadcrumb-item >Kế toán</a-breadcrumb-item>
+          <a-breadcrumb-item >Quản lý kho thẻ</a-breadcrumb-item>
           <a-breadcrumb-item :class="'active'">Quản lý phiếu nhập </a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
@@ -36,7 +36,9 @@
                 label="Số phiếu"
                 prop="sophieu"
                 style="margin-bottom: 20px!important;">
-                <a-input v-model="form.sophieu"></a-input>
+                <a-input
+                  placeholder="Nhập số phiếu"
+                  v-model="form.sophieu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Phương thức"
@@ -77,6 +79,7 @@
                     prop="tungay"
                     style="margin-bottom: 20px!important;">
                     <a-date-picker
+                      placeholder="Chọn thời gian"
                       v-model="form.tungay"
                       format="DD/MM/YYYY"></a-date-picker>
                   </a-form-model-item>
@@ -87,6 +90,7 @@
                     prop="denngay"
                     style="margin-bottom: 20px!important;">
                     <a-date-picker
+                      placeholder="Chọn thời gian"
                       v-model="form.denngay"
                       format="DD/MM/YYYY"></a-date-picker>
                   </a-form-model-item>
@@ -96,13 +100,16 @@
                 label="Số chứng từ"
                 prop="sochungtu"
                 style="margin-bottom: 20px!important;">
-                <a-input v-model="form.sochungtu"></a-input>
+                <a-input
+                  placeholder="Nhập số chứng từ"
+                  v-model="form.sochungtu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Ca"
                 prop="ca"
                 style="margin-bottom: 20px!important;">
                 <a-select
+                  placeholder="Chọn ca"
                   v-model="form.ca"
                 >
                   <a-select-option :key="'all'" :value="'all'">
@@ -118,6 +125,7 @@
                 prop="nhaptu"
                 style="margin-bottom: 20px!important;">
                 <a-select
+                  placeholder="Chọn nhập từ"
                   v-model="form.nhaptu"
                 >
                   <a-select-option :key="'all'" :value="'all'">
@@ -251,13 +259,13 @@ export default {
       columnsDetail,
       form: {
         tram: '1',
-        sophieu: 'PN20022022001',
+        sophieu: undefined,
         phuongthuc: 'all',
         nguoilap: 'all',
-        tungay: '2021-02-10',
-        denngay: '2021-02-25',
+        tungay: undefined,
+        denngay: undefined,
         ca: 'all',
-        sochungtu: '123456789',
+        sochungtu: undefined,
         nhaptu: 'all'
       },
       lsTram: [
@@ -332,20 +340,20 @@ export default {
           ca: '2',
           phuongthuc: 'Nhập thẻ mới từ NCC',
           ghichu: ''
-        },
-        {
-          rowIndex: '2',
-          tram: 'Trung tâm điều hành',
-          sophieu: 'PN20022022001',
-          sochungtu: '10923843',
-          ngaylap: '2021-02-20',
-          nguoilap: 'Đỗ Thanh Hoa',
-          nguoinhan: 'Ngô Lan Anh',
-          nhaptu: '',
-          ca: '2',
-          phuongthuc: 'Nhập thẻ mới từ NCC',
-          ghichu: ''
         }
+        // {
+        //   rowIndex: '2',
+        //   tram: 'Trung tâm điều hành',
+        //   sophieu: 'PN20022022001',
+        //   sochungtu: '10923843',
+        //   ngaylap: '2021-02-20',
+        //   nguoilap: 'Đỗ Thanh Hoa',
+        //   nguoinhan: 'Ngô Lan Anh',
+        //   nhaptu: '',
+        //   ca: '2',
+        //   phuongthuc: 'Nhập thẻ mới từ NCC',
+        //   ghichu: ''
+        // }
       ],
       dataDetail: [
         {

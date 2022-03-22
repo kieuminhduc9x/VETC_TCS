@@ -3,7 +3,7 @@
     <template v-slot:breadcrumb>
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
-          <a-breadcrumb-item >Kế toán</a-breadcrumb-item>
+          <a-breadcrumb-item >Quản lý kho thẻ</a-breadcrumb-item>
           <a-breadcrumb-item :class="'active'">Phiếu nhập kho thẻ</a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
@@ -24,6 +24,7 @@
                 prop="tram"
                 style="margin-bottom: 20px!important;">
                 <a-select
+                  placeholder="Chọn đơn vị"
                   v-model="form.tram"
                   :disabled="true"
                 >
@@ -36,13 +37,16 @@
                 label="Số phiếu"
                 prop="sophieu"
                 style="margin-bottom: 20px!important;">
-                <a-input v-model="form.sophieu"></a-input>
+                <a-input
+                  placeholder="Nhập số phiếu"
+                  v-model="form.sophieu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Phương thức"
                 prop="phuongthuc"
                 style="margin-bottom: 20px!important;">
                 <a-select
+                  placeholder="Chọn phương thức"
                   v-model="form.phuongthuc"
                 >
                   <a-select-option v-for="item in lsPhuongthuc" :key="item.value" :value="item.value">
@@ -55,6 +59,7 @@
                 prop="nguoinhan"
                 style="margin-bottom: 20px!important;">
                 <a-select
+                  placeholder="Chọn người nhận"
                   v-model="form.nguoinhan"
                 >
                   <a-select-option v-for="item in lsNguoinhan" :key="item.value" :value="item.value">
@@ -71,6 +76,7 @@
                     prop="ngaylap"
                     style="margin-bottom: 20px!important;">
                     <a-date-picker
+                      placeholder="Chọn thời gian"
                       v-model="form.ngaylap"
                       format="DD/MM/YYYY"></a-date-picker>
                   </a-form-model-item>
@@ -81,6 +87,7 @@
                     prop="ca"
                     style="margin-bottom: 20px!important;">
                     <a-select
+                      placeholder="Chọn ca"
                       v-model="form.ca"
                     >
                       <a-select-option v-for="item in lsCa" :key="item.value" :value="item.value">
@@ -94,13 +101,16 @@
                 label="Số chứng từ"
                 prop="sochungtu"
                 style="margin-bottom: 20px!important;">
-                <a-input v-model="form.sochungtu"></a-input>
+                <a-input
+                  placeholder="Nhập số chứng từ"
+                  v-model="form.sochungtu"></a-input>
               </a-form-model-item>
               <a-form-model-item
                 label="Nhập từ"
                 prop="nhaptu"
                 style="margin-bottom: 15px!important;">
                 <a-select
+                  placeholder="Chọn nhập từ"
                   v-model="form.nhaptu"
                 >
                   <a-select-option v-for="item in lsNhaptu" :key="item.value" :value="item.value">
@@ -236,13 +246,13 @@ export default {
       columns,
       form: {
         tram: '1',
-        sophieu: 'PN20022022001',
+        sophieu: '',
         phuongthuc: '1',
-        nguoinhan: '1',
-        ngaylap: '2022-02-20',
-        ca: '1',
-        sochungtu: '123456789',
-        nhaptu: '',
+        nguoinhan: undefined,
+        ngaylap: undefined,
+        ca: undefined,
+        sochungtu: undefined,
+        nhaptu: undefined,
         ghichu: ''
       },
       lsTram: [

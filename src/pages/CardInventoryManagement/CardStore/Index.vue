@@ -3,7 +3,7 @@
     <template v-slot:breadcrumb>
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
-          <a-breadcrumb-item >Kế toán</a-breadcrumb-item>
+          <a-breadcrumb-item >Quản lý kho thẻ</a-breadcrumb-item>
           <a-breadcrumb-item :class="'active'">Kho thẻ</a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
@@ -34,7 +34,7 @@
             </a-col>
             <a-col :xs="24" :lg="6" :md="6">
               <div style="display: flex; justify-content: flex-start">
-                <a-button class="ant-btn-success">Tra cứu</a-button>
+                <a-button class="ant-btn-success">Tính lại</a-button>
               </div>
             </a-col>
           </a-row>

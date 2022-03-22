@@ -3,8 +3,7 @@
     <template v-slot:breadcrumb>
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
-          <a-breadcrumb-item >Kế toán</a-breadcrumb-item>
-          <a-breadcrumb-item :class="'active'">Tính tồn kho thẻ </a-breadcrumb-item>
+          <a-breadcrumb-item :class="'active'">Tính tồn kho </a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
       </div>
@@ -25,7 +24,6 @@
                 style="margin-bottom: 20px!important;">
                 <a-select
                   v-model="form.tram"
-                  :disabled="true"
                 >
                   <a-select-option v-for="item in lsTram" :key="item.value" :value="item.value">
                     {{ item.name }}
@@ -39,6 +37,7 @@
                 prop="ngaychot"
                 style="margin-bottom: 20px!important;">
                 <a-date-picker
+                  placeholder="Chọn thời gian"
                   v-model="form.ngaychot"
                   :format="'DD/MM/YYYY'"
                 >
@@ -69,7 +68,6 @@
                 style="margin-bottom: 20px!important;">
                 <a-select
                   v-model="formChotNgay.tram"
-                  :disabled="true"
                 >
                   <a-select-option v-for="item in lsTramChotNgay" :key="item.value" :value="item.value">
                     {{ item.name }}
@@ -83,6 +81,7 @@
                 prop="tungay"
                 style="margin-bottom: 20px!important;">
                 <a-date-picker
+                  placeholder="Chọn thời gian"
                   v-model="formChotNgay.tungay"
                   format="DD/MM/YYYY"
                 >
@@ -97,6 +96,7 @@
                 <a-date-picker
                   v-model="formChotNgay.denngay"
                   format="DD/MM/YYYY"
+                  placeholder="Chọn thời gian"
                 >
                 </a-date-picker>
               </a-form-model-item>
@@ -191,7 +191,7 @@ export default {
       lsTram: [
         {
           value: '1',
-          name: 'Trạm B'
+          name: 'Trung tâm điều hành'
         }
       ],
       labelCol: { span: 6 },
@@ -204,33 +204,21 @@ export default {
       lsTramChotNgay: [
         {
           value: '1',
-          name: 'Liêm Tuyền'
+          name: 'Trung tâm điều hành'
         }
       ],
       data: [
         {
           ngaychot: '21/02/2022',
           thietbi: 'Thẻ IC',
-          tondau: '1,000',
+          tondau: '2,000',
           nhaptutrungtam: '2,000',
           nhaptrakho: '3,000',
-          xuatchonhanvien: '0',
+          xuatchonhanvien: '1,000',
           xuatchotramkhac: '0',
           xuattratrungtam: '0',
           xuathuy: '0',
-          toncuoi: '15,000'
-        },
-        {
-          ngaychot: '21/02/2022',
-          thietbi: 'Thẻ IC',
-          tondau: '10,000',
-          nhaptutrungtam: '0',
-          nhaptrakho: '3,000',
-          xuatchonhanvien: '0',
-          xuatchotramkhac: '0',
-          xuattratrungtam: '0',
-          xuathuy: '0',
-          toncuoi: '13,000'
+          toncuoi: '6,000'
         }
       ]
     }

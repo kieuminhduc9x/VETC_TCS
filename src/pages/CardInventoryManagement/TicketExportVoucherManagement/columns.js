@@ -53,20 +53,20 @@ export default [
     scopedSlots: { customRender: 'nguoilap' },
     align: 'left',
     ellipsis: true,
-    width: 120
+    width: 180
   },
   {
-    title: 'Người nhận',
-    dataIndex: 'nguoinhan',
-    scopedSlots: { customRender: 'nguoinhan' },
+    title: 'Người giao',
+    dataIndex: 'nguoigiao',
+    scopedSlots: { customRender: 'nguoigiao' },
     align: 'left',
     ellipsis: true,
     width: 120
   },
   {
-    title: 'Nhập từ',
-    dataIndex: 'nhaptu',
-    scopedSlots: { customRender: 'nhaptu' },
+    title: 'Xuất đến',
+    dataIndex: 'xuatden',
+    scopedSlots: { customRender: 'xuatden' },
     align: 'left',
     ellipsis: true,
     width: 120

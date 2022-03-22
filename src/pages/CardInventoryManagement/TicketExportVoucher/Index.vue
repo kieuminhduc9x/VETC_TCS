@@ -4,13 +4,13 @@
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
           <a-breadcrumb-item >Quản lý kho vé</a-breadcrumb-item>
-          <a-breadcrumb-item :class="'active'">Phiếu nhập vé</a-breadcrumb-item>
+          <a-breadcrumb-item :class="'active'">Phiếu xuất vé</a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
       </div>
     </template>
     <div style="margin-top: 5px">
-      <a-card title="Thông tin phiếu nhập">
+      <a-card title="Thông tin phiếu xuất">
         <a-form-model
           :model="form"
           :label-col="labelCol"
@@ -50,13 +50,13 @@
                 </a-select>
               </a-form-model-item>
               <a-form-model-item
-                label="Người nhận"
-                prop="nguoinhan"
+                label="Người giao"
+                prop="nguoigiao"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  v-model="form.nguoinhan"
+                  v-model="form.nguoigiao"
                 >
-                  <a-select-option v-for="item in lsNguoinhan" :key="item.value" :value="item.value">
+                  <a-select-option v-for="item in lsNguoigiao" :key="item.value" :value="item.value">
                     {{ item.name }}
                   </a-select-option>
                 </a-select>
@@ -96,13 +96,13 @@
                 <a-input v-model="form.sochungtu"></a-input>
               </a-form-model-item>
               <a-form-model-item
-                label="Nhập từ"
-                prop="nhaptu"
+                label="Xuất đến"
+                prop="xuatden"
                 style="margin-bottom: 15px!important;">
                 <a-select
-                  v-model="form.nhaptu"
+                  v-model="form.xuatden"
                 >
-                  <a-select-option v-for="item in lsNhaptu" :key="item.value" :value="item.value">
+                  <a-select-option v-for="item in lsXuatden" :key="item.value" :value="item.value">
                     {{ item.name }}
                   </a-select-option>
                 </a-select>
@@ -117,7 +117,7 @@
           </a-row>
         </a-form-model>
       </a-card>
-      <a-card title="Chi tiết phiếu nhập">
+      <a-card title="Chi tiết phiếu xuất">
         <a-form-model
           :model="formDetail"
           :label-col="labelCol"
@@ -225,8 +225,8 @@
                 </template>
               </a-table>
               <div style="display: flex; justify-content: flex-end;margin-top: 20px ">
-                <a-checkbox :checked="true" v-model="formDetail.inphieunhap">
-                  <span>In phiếu nhập</span>
+                <a-checkbox :checked="true" v-model="formDetail.inphieuxuat">
+                  <span>In phiếu xuất</span>
                 </a-checkbox>
               </div>
               <div style="display: flex; justify-content: flex-end;margin-top: 20px ">
@@ -284,13 +284,13 @@ export default {
       columns,
       form: {
         donvi: '1',
-        sophieu: 'PN0020032412',
+        sophieu: 'PX78918233234',
         phuongthuc: '1',
-        nguoinhan: undefined,
+        nguoigiao: undefined,
         ngaylap: '2021-02-22',
         ca: '1',
-        sochungtu: '987234123',
-        nhaptu: undefined,
+        sochungtu: '907812343',
+        xuatden: undefined,
         ghichu: ''
       },
       lsDonvi: [
@@ -302,22 +302,14 @@ export default {
       lsPhuongthuc: [
         {
           value: '1',
-          name: 'Nhập mới từ NCC'
+          name: 'Xuất vé cho trạm'
         },
         {
           value: '2',
-          name: 'Nhập thẻ từ trạm khác'
-        },
-        {
-          value: '3',
-          name: 'Nhập thẻ dư từ nhân viên'
-        },
-        {
-          value: '4',
-          name: 'Nhập thẻ hư từ nhân viên'
+          name: 'Xuất vé hỏng'
         }
       ],
-      lsNguoinhan: [
+      lsNguoigiao: [
         {
           value: '1',
           name: 'Hoàng My'
@@ -329,10 +321,10 @@ export default {
           name: 'Ca 2'
         }
       ],
-      lsNhaptu: [
+      lsXuatden: [
         {
           value: '1',
-          name: 'Tien Phong'
+          name: 'Hà Thanh Vân'
         }
       ],
       labelCol: { span: 6 },
@@ -343,7 +335,7 @@ export default {
         tuserial: '',
         denserial: '',
         soluong: '',
-        inphieunhap: true
+        inphieuxuat: true
       },
       lsLotrinh: [],
       lsLoaive: [],

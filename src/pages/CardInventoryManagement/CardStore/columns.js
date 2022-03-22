@@ -12,24 +12,21 @@ export default [
     dataIndex: 'tram',
     scopedSlots: { customRender: 'tram' },
     align: 'left',
-    ellipsis: true,
-    width: 120
+    ellipsis: true
   },
   {
     title: 'Thiết bị',
     dataIndex: 'thietbi',
     scopedSlots: { customRender: 'thietbi' },
     align: 'left',
-    ellipsis: true,
-    width: 120
+    ellipsis: true
   },
   {
     title: 'Số lượng thẻ',
     dataIndex: 'soluongthe',
     scopedSlots: { customRender: 'soluongthe' },
     align: 'right',
-    ellipsis: true,
-    width: 120
+    ellipsis: true
   }
 
 ]

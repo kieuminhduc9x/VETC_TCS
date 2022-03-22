@@ -8,24 +8,17 @@ export default [
     width: 80
   },
   {
-    title: 'Thiết bị',
-    dataIndex: 'thietbi',
-    scopedSlots: { customRender: 'thietbi' },
+    title: 'Người được giao',
+    dataIndex: 'nguoiduocgiao',
+    scopedSlots: { customRender: 'nguoiduocgiao' },
     align: 'left',
     ellipsis: true
   },
   {
     title: 'Số lượng thẻ',
-    dataIndex: 'soluong',
-    scopedSlots: { customRender: 'soluong' },
+    dataIndex: 'soluongthe',
+    scopedSlots: { customRender: 'soluongthe' },
     align: 'right',
-    ellipsis: true
-  },
-  {
-    title: 'Người được giao',
-    dataIndex: 'nguoiduocgiao',
-    scopedSlots: { customRender: 'nguoiduocgiao' },
-    align: 'left',
     ellipsis: true
   }
 

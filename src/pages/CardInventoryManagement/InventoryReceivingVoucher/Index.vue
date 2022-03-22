@@ -51,13 +51,13 @@
                 </a-select>
               </a-form-model-item>
               <a-form-model-item
-                label="Người nhận"
-                prop="nguoinhan"
+                label="Người giao"
+                prop="nguoigiao"
                 style="margin-bottom: 20px!important;">
                 <a-select
-                  v-model="form.nguoinhan"
+                  v-model="form.nguoigiao"
                 >
-                  <a-select-option v-for="item in lsNguoinhan" :key="item.value" :value="item.value">
+                  <a-select-option v-for="item in lsNguoigiao" :key="item.value" :value="item.value">
                     {{ item.name }}
                   </a-select-option>
                 </a-select>
@@ -150,7 +150,7 @@
             </a-col>
             <a-col :xs="24" :lg="4" :md="4">
               <div>
-                <a-button class="ant-btn-success">Thêm vào danh sách</a-button>
+                <a-button class="ant-btn-success">Thêm vào DS</a-button>
               </div>
             </a-col>
           </a-row>
@@ -238,8 +238,8 @@ export default {
         tram: '1',
         sophieu: 'PN20022022001',
         phuongthuc: '1',
-        nguoinhan: '1',
-        ngaylap: '2022-03-16',
+        nguoigiao: '1',
+        ngaylap: '2021-02-20',
         ca: '1',
         sochungtu: '123456789',
         xuatden: '1',
@@ -248,27 +248,19 @@ export default {
       lsTram: [
         {
           value: '1',
-          name: 'Liêm Tuyền'
+          name: 'Trung tâm điều hành'
         }
       ],
       lsPhuongthuc: [
         {
           value: '1',
-          name: 'Xuất thẻ cho nhân viên'
-        },
-        {
-          value: '2',
-          name: 'Xuất trả thẻ hỏng'
-        },
-        {
-          value: '3',
-          name: 'Xuất cho trạm khác'
+          name: 'Xuất thẻ cho trạm'
         }
       ],
-      lsNguoinhan: [
+      lsNguoigiao: [
         {
           value: '1',
-          name: 'Hoàng My'
+          name: ''
         }
       ],
       lsCa: [
@@ -280,11 +272,7 @@ export default {
       lsXuatden: [
         {
           value: '1',
-          name: 'Hà Thanh Vân'
-        },
-        {
-          value: '2',
-          name: 'Nguyễn Quốc Hòa'
+          name: ''
         }
       ],
       labelCol: { span: 6 },

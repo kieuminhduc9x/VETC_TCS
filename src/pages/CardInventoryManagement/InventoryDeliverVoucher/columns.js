@@ -8,6 +8,14 @@ export default [
     width: 100
   },
   {
+    title: 'Thao tác',
+    dataIndex: 'action',
+    scopedSlots: { customRender: 'action' },
+    align: 'center',
+    ellipsis: true,
+    width: 80
+  },
+  {
     title: 'Thiết bị',
     dataIndex: 'thietbi',
     scopedSlots: { customRender: 'thietbi' },
@@ -20,14 +28,6 @@ export default [
     scopedSlots: { customRender: 'soluong' },
     align: 'right',
     ellipsis: true
-  },
-  {
-    title: 'Thao tác',
-    dataIndex: 'action',
-    scopedSlots: { customRender: 'action' },
-    align: 'center',
-    ellipsis: true,
-    width: 80
   }
 
 ]

@@ -150,7 +150,7 @@
             </a-col>
             <a-col :xs="24" :lg="4" :md="4">
               <div>
-                <a-button class="ant-btn-success">Thêm vào danh sách</a-button>
+                <a-button class="ant-btn-success">Thêm vào DS</a-button>
               </div>
             </a-col>
           </a-row>
@@ -239,34 +239,26 @@ export default {
         sophieu: 'PN20022022001',
         phuongthuc: '1',
         nguoinhan: '1',
-        ngaylap: '2022-03-16',
+        ngaylap: '2022-02-20',
         ca: '1',
         sochungtu: '123456789',
-        nhaptu: '1',
+        nhaptu: '',
         ghichu: ''
       },
       lsTram: [
         {
           value: '1',
-          name: 'Liêm Tuyền'
+          name: 'Trung tâm điều hành'
         }
       ],
       lsPhuongthuc: [
         {
           value: '1',
-          name: 'Nhập thẻ mới từ trung tâm'
+          name: 'Nhập thẻ mới từ NCC'
         },
         {
           value: '2',
-          name: 'Nhập thẻ từ trạm khác'
-        },
-        {
-          value: '3',
-          name: 'Nhập thẻ dư từ nhân viên'
-        },
-        {
-          value: '4',
-          name: 'Nhập thẻ hư từ nhân viên'
+          name: 'Nhập thẻ từ trạm'
         }
       ],
       lsNguoinhan: [

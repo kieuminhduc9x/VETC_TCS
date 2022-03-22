@@ -12,7 +12,7 @@
     </div> -->
     <div
       class="ant-layout-sider-trigger sider--top cl-sider--top"
-      style="width: 40px;"
+      style="width: 270px;"
       @click="() => {collapsed = !collapsed; showSidebar()}"><i
         aria-label="icon: right"
         class="anticon anticon-left"
@@ -41,38 +41,38 @@
       <a-sub-menu key="1">
         <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Quản trị hệ thống</span></a>
         <a-menu-item key="1_1" >
-          <router-link :to="{ name: 'account' }" class="title-menu">
+          <router-link :to="{ name: 'account' }" class="title-sub-menu">
             <span>Tài khoản</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="1_2" >
-          <router-link :to="{ name: 'permission' }" class="title-menu">
+          <router-link :to="{ name: 'permission' }" class="title-sub-menu">
             <span>Phân quyền</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="1_3" >
-          <router-link :to="{ name: 'category' }" class="title-menu">
+          <router-link :to="{ name: 'category' }" class="title-sub-menu">
             <span>Danh mục</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="1_4" >
-          <router-link :to="{ name: 'code_lookup_HDDT' }" class="title-menu">
+          <router-link :to="{ name: 'code_lookup_HDDT' }" class="title-sub-menu">
             <span>Tra cứu mã HDDT</span>
           </router-link>
         </a-menu-item>
       </a-sub-menu>
-      <a-menu-item key="2" >
-        <router-link :to="{ name: 'giam_sat' }" class="title-menu">
-          <a-icon type="appstore" />
-          <span>Giám sát</span>
-        </router-link>
-      </a-menu-item>
-      <a-menu-item key="3" >
-        <router-link :to="{ name: 'hau_kiem' }" class="title-menu">
-          <a-icon type="project" />
-          <span>Hậu kiểm</span>
-        </router-link>
-      </a-menu-item>
+      <!--      <a-menu-item key="2" >-->
+      <!--        <router-link :to="{ name: 'giam_sat' }" class="title-menu">-->
+      <!--          <a-icon type="appstore" />-->
+      <!--          <span>Giám sát</span>-->
+      <!--        </router-link>-->
+      <!--      </a-menu-item>-->
+      <!--      <a-menu-item key="3" >-->
+      <!--        <router-link :to="{ name: 'hau_kiem' }" class="title-menu">-->
+      <!--          <a-icon type="project" />-->
+      <!--          <span>Hậu kiểm</span>-->
+      <!--        </router-link>-->
+      <!--      </a-menu-item>-->
       <a-sub-menu key="4">
         <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Kế toán</span></a>
         <a-menu-item key="4_1" >
@@ -95,31 +95,31 @@
             <span>Quản lý phiếu xuất</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="4_5" >
-          <router-link :to="{ name: 'cancel_card' }" class="title-sub-menu">
-            <span>Hủy thẻ</span>
-          </router-link>
-        </a-menu-item>
+        <!--        <a-menu-item key="4_5" >-->
+        <!--          <router-link :to="{ name: 'cancel_card' }" class="title-sub-menu">-->
+        <!--            <span>Hủy thẻ</span>-->
+        <!--          </router-link>-->
+        <!--        </a-menu-item>-->
         <a-menu-item key="4_6" >
           <router-link :to="{ name: 'card_store' }" class="title-sub-menu">
             <span>Kho thẻ</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="4_7" >
-          <router-link :to="{ name: 'card_inventory_calculator' }" class="title-sub-menu">
-            <span>Tính tồn kho thẻ</span>
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="4_8" >
-          <router-link :to="{ name: 'list_attach_invoice' }" class="title-sub-menu">
-            <span>Lập bảng kê</span>
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="4_9" >
-          <router-link :to="{ name: 'disparity_handling' }" class="title-sub-menu">
-            <span>Xử lý chênh lệch</span>
-          </router-link>
-        </a-menu-item>
+        <!--        <a-menu-item key="4_7" >-->
+        <!--          <router-link :to="{ name: 'card_inventory_calculator' }" class="title-sub-menu">-->
+        <!--            <span>Tính tồn kho thẻ</span>-->
+        <!--          </router-link>-->
+        <!--        </a-menu-item>-->
+        <!--        <a-menu-item key="4_8" >-->
+        <!--          <router-link :to="{ name: 'list_attach_invoice' }" class="title-sub-menu">-->
+        <!--            <span>Lập bảng kê</span>-->
+        <!--          </router-link>-->
+        <!--        </a-menu-item>-->
+        <!--        <a-menu-item key="4_9" >-->
+        <!--          <router-link :to="{ name: 'disparity_handling' }" class="title-sub-menu">-->
+        <!--            <span>Xử lý chênh lệch</span>-->
+        <!--          </router-link>-->
+        <!--        </a-menu-item>-->
         <!--        <a-menu-item key="4_10" >-->
         <!--          <router-link :to="{ name: 'ticket_import_voucher' }" class="title-sub-menu">-->
         <!--            <span>Phiếu nhập vé</span>-->
@@ -141,27 +141,27 @@
         <!--          </router-link>-->
         <!--        </a-menu-item>-->
       </a-sub-menu>
-      <a-sub-menu key="5">
-        <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Đối soát ETC</span></a>
-        <a-menu-item key="5_1" >
-          <router-link :to="{ name: 'import_counter_transaction' }" class="title-sub-menu">
-            <span>Import đối soát giao dịch</span>
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="5_2" >
-          <router-link :to="{ name: 'create_transaction' }" class="title-sub-menu">
-            <span>Tạo giao dịch ETC</span>
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="5_3" >
-          <router-link :to="{ name: 'adjustmen_transaction_management' }" class="title-sub-menu">
-            <span>Điều chỉnh giao dịch đã đối soát</span>
-          </router-link>
-        </a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key="6">
-        <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Báo cáo thống kê</span></a>
-      </a-sub-menu>
+      <!--      <a-sub-menu key="5">-->
+      <!--        <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Đối soát ETC</span></a>-->
+      <!--        <a-menu-item key="5_1" >-->
+      <!--          <router-link :to="{ name: 'import_counter_transaction' }" class="title-sub-menu">-->
+      <!--            <span>Import đối soát giao dịch</span>-->
+      <!--          </router-link>-->
+      <!--        </a-menu-item>-->
+      <!--        <a-menu-item key="5_2" >-->
+      <!--          <router-link :to="{ name: 'create_transaction' }" class="title-sub-menu">-->
+      <!--            <span>Tạo giao dịch ETC</span>-->
+      <!--          </router-link>-->
+      <!--        </a-menu-item>-->
+      <!--        <a-menu-item key="5_3" >-->
+      <!--          <router-link :to="{ name: 'adjustmen_transaction_management' }" class="title-sub-menu">-->
+      <!--            <span>Điều chỉnh giao dịch đã đối soát</span>-->
+      <!--          </router-link>-->
+      <!--        </a-menu-item>-->
+      <!--      </a-sub-menu>-->
+      <!--      <a-sub-menu key="6">-->
+      <!--        <a slot="title"><icon name="book" width="24px" height="24px" style="margin-right: 10px"></icon><span class="title-menu">Báo cáo thống kê</span></a>-->
+      <!--      </a-sub-menu>-->
     </a-menu>
   </a-layout-sider>
 </template>
@@ -173,7 +173,7 @@ export default {
   name: 'SideBar',
   data () {
     return {
-      collapsed: true
+      collapsed: false
     }
   },
   computed: {

@@ -13,7 +13,7 @@ export default [
     scopedSlots: { customRender: 'action' },
     align: 'center',
     ellipsis: true,
-    width: 80
+    width: 150
   },
   {
     title: 'Đơn vị',
@@ -21,7 +21,7 @@ export default [
     scopedSlots: { customRender: 'tram' },
     align: 'left',
     ellipsis: true,
-    width: 120
+    width: 150
   },
   {
     title: 'Số phiếu',
@@ -29,7 +29,7 @@ export default [
     scopedSlots: { customRender: 'sophieu' },
     align: 'left',
     ellipsis: true,
-    width: 120
+    width: 150
   },
   {
     title: 'Số chứng từ',
@@ -69,7 +69,7 @@ export default [
     scopedSlots: { customRender: 'xuatden' },
     align: 'left',
     ellipsis: true,
-    width: 120
+    width: 150
   },
   {
     title: 'Ca',

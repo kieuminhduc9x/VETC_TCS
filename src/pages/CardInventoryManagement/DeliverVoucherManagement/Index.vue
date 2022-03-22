@@ -54,7 +54,7 @@
                 </a-select>
               </a-form-model-item>
               <a-form-model-item
-                label="Người nhận"
+                label="Người lập"
                 prop="nguoilap"
                 style="margin-bottom: 20px!important;">
                 <a-select
@@ -254,8 +254,8 @@ export default {
         sophieu: 'PN20022022001',
         phuongthuc: 'all',
         nguoilap: 'all',
-        tungay: '2022-03-16',
-        denngay: '2022-03-16',
+        tungay: '2021-02-10',
+        denngay: '2021-02-25',
         ca: 'all',
         sochungtu: '123456789',
         nhaptu: 'all'
@@ -263,7 +263,7 @@ export default {
       lsTram: [
         {
           value: '1',
-          name: 'Liêm Tuyền'
+          name: 'Trung tâm điều hành'
         }
       ],
       lsPhuongthuc: [
@@ -322,28 +322,28 @@ export default {
       data: [
         {
           rowIndex: '1',
-          tram: 'Liêm Tuyền',
+          tram: 'Trung tâm điều hành',
           sophieu: 'PN20022022001',
-          sochungtu: '123456789',
-          ngaylap: '2021-02-20',
-          nguoilap: 'Nguyễn Hạnh',
-          nguoinhan: 'Hoàng My',
-          nhaptu: 'Tien Phong',
+          sochungtu: '10923843',
+          ngaylap: '2021-02-21',
+          nguoilap: 'Đỗ Thanh Hoa',
+          nguoinhan: 'Ngô Lan Anh',
+          nhaptu: '',
           ca: '2',
-          phuongthuc: 'Nhập thẻ mới từ trung tâm',
+          phuongthuc: 'Nhập thẻ mới từ NCC',
           ghichu: ''
         },
         {
           rowIndex: '2',
-          tram: 'Liêm Tuyền',
+          tram: 'Trung tâm điều hành',
           sophieu: 'PN20022022001',
-          sochungtu: '123456789',
+          sochungtu: '10923843',
           ngaylap: '2021-02-20',
-          nguoilap: 'Nguyễn Hạnh',
-          nguoinhan: 'Hoàng My',
-          nhaptu: 'Tien Phong',
+          nguoilap: 'Đỗ Thanh Hoa',
+          nguoinhan: 'Ngô Lan Anh',
+          nhaptu: '',
           ca: '2',
-          phuongthuc: 'Nhập thẻ mới từ trung tâm',
+          phuongthuc: 'Nhập thẻ mới từ NCC',
           ghichu: ''
         }
       ],
@@ -351,7 +351,7 @@ export default {
         {
           rowIndex: '1',
           thietbi: 'Thẻ IC',
-          soluong: '1,000'
+          soluong: '5,000'
         }
       ]
     }

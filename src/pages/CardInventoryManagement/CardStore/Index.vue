@@ -4,7 +4,7 @@
       <div style="display: flex; justify-content: space-between">
         <a-breadcrumb separator=">">
           <a-breadcrumb-item >Kế toán</a-breadcrumb-item>
-          <a-breadcrumb-item :class="'active'">Kho thẻ </a-breadcrumb-item>
+          <a-breadcrumb-item :class="'active'">Kho thẻ</a-breadcrumb-item>
         </a-breadcrumb>
         <menu-profile></menu-profile>
       </div>
@@ -25,7 +25,6 @@
                 style="margin-bottom: 20px!important;">
                 <a-select
                   v-model="form.tram"
-                  :disabled="true"
                 >
                   <a-select-option v-for="item in lsTram" :key="item.value" :value="item.value">
                     {{ item.name }}
@@ -35,7 +34,7 @@
             </a-col>
             <a-col :xs="24" :lg="6" :md="6">
               <div style="display: flex; justify-content: flex-start">
-                <a-button class="ant-btn-success">Tính lại</a-button>
+                <a-button class="ant-btn-success">Tra cứu</a-button>
               </div>
             </a-col>
           </a-row>
@@ -59,48 +58,70 @@
           </a-col>
         </a-row>
       </a-card>
-      <a-card title="Tổng hợp thẻ đang giao cho nhân viên">
-        <a-form-model
-          :model="formTotalCard"
-          :label-col="labelCol"
-          :wrapper-col="wrapperCol"
-          labelAlign="left">
+      <a-row :gutter="16">
+        <a-col :xs="24" :md="12" :lg="12">
+          <a-card title="Tổng hợp thẻ đang giao cho trạm">
+            <a-row :gutter="16" type="flex">
+              <a-col :span="24">
+                <a-table
+                  :columns="columnsTotalCard"
+                  :data-source="dataTotalCard"
+                  :rowKey=" (rowKey, index ) => index"
+                  :pagination="dataTotalCard.length === 0 ? false : paginationTotalCard"
+                  :loading="loading"
+                  :scroll="{ x: '100%' }"
+                  :locale="{ emptyText: 'Chưa có dữ liệu' }"
+                  @change="handleTableChangeTotalCard"
+                  class="ant-table-bordered">
+                </a-table>
+              </a-col>
+            </a-row>
+          </a-card>
+        </a-col>
+        <a-col :xs="24" :md="12" :lg="12">
+          <a-card title="Thẻ đang giao nhân viên">
+            <a-form-model
+              :model="formDetail"
+              :label-col="labelCol"
+              :wrapper-col="wrapperCol"
+              labelAlign="left">
 
-          <a-row :gutter="16">
-            <a-col :xs="24" :lg="16" :md="16">
-              <a-form-model-item
-                label="Nhân viên"
-                prop="nhanvien"
-                style="margin-bottom: 20px!important;">
-                <a-select
-                  v-model="formTotalCard.nhanvien"
-                  :disabled="true"
-                >
-                  <a-select-option v-for="item in lsNhanvien" :key="item.value" :value="item.value">
-                    {{ item.name }}
-                  </a-select-option>
-                </a-select>
-              </a-form-model-item>
-            </a-col>
-          </a-row>
-        </a-form-model>
-        <a-row :gutter="16" type="flex">
-          <a-col :span="24">
-            <a-table
-              ref="tb1"
-              :columns="columnsDetail"
-              :data-source="dataDetail"
-              :rowKey=" (rowKey, index ) => index"
-              :pagination="dataDetail.length === 0 ? false : pagination"
-              :loading="loading"
-              :scroll="{ x: '100%' }"
-              :locale="{ emptyText: 'Chưa có dữ liệu' }"
-              @change="handleTableChange"
-              class="ant-table-bordered">
-            </a-table>
-          </a-col>
-        </a-row>
-      </a-card>
+              <a-row :gutter="16">
+                <a-col :xs="24" :lg="16" :md="16">
+                  <a-form-model-item
+                    label="Nhân viên"
+                    prop="nhanvien"
+                    style="margin-bottom: 20px!important;">
+                    <a-select
+                      v-model="formDetail.nhanvien"
+                      placeholder="Chọn nhân viên"
+                    >
+                      <a-select-option v-for="item in lsNhanvien" :key="item.value" :value="item.value">
+                        {{ item.name }}
+                      </a-select-option>
+                    </a-select>
+                  </a-form-model-item>
+                </a-col>
+              </a-row>
+            </a-form-model>
+            <a-row :gutter="16" type="flex">
+              <a-col :span="24">
+                <a-table
+                  :columns="columnsDetail"
+                  :data-source="dataDetail"
+                  :rowKey=" (rowKey, index ) => index"
+                  :pagination="dataDetail.length === 0 ? false : paginationDetail"
+                  :loading="loading"
+                  :scroll="{ x: '100%' }"
+                  :locale="{ emptyText: 'Chưa có dữ liệu' }"
+                  @change="handleTableChange"
+                  class="ant-table-bordered">
+                </a-table>
+              </a-col>
+            </a-row>
+          </a-card>
+        </a-col>
+      </a-row>
     </div>
   </main-layout>
 </template>
@@ -112,6 +133,7 @@ import resizeableTitle from '@/utils/resizable-columns'
 import TableEmptyText from '@/utils/table-empty-text'
 import columns from './columns'
 import columnsDetail from './columnsDetail'
+import columnsTotalCard from './columnsTotalCard'
 import _merge from 'lodash/merge'
 import moment from 'moment'
 
@@ -145,62 +167,114 @@ export default {
           return 'Tổng số dòng ' + total
         }
       },
+      paginationTotalCard: {
+        current: 1,
+        total: 1,
+        pageSize: 15,
+        pageSizes: 500,
+        showSizeChanger: true,
+        showQuickJumper: true,
+        pageSizeOptions: ['15', '25', '50'],
+        showTotal: (total) => {
+          return 'Tổng số dòng ' + total
+        }
+      },
+      paginationDetail: {
+        current: 1,
+        total: 1,
+        pageSize: 15,
+        pageSizes: 500,
+        showSizeChanger: true,
+        showQuickJumper: true,
+        pageSizeOptions: ['15', '25', '50'],
+        showTotal: (total) => {
+          return 'Tổng số dòng ' + total
+        }
+      },
       loading: false,
       columns,
       columnsDetail,
+      columnsTotalCard,
       form: {
         tram: '1'
       },
       lsTram: [
         {
           value: '1',
-          name: 'Trạm B'
+          name: 'Trung tâm điều hành'
         }
       ],
-      labelCol: { span: 4 },
+      labelCol: { span: 6 },
       wrapperCol: { span: 14 },
-      formTotalCard: {
-        nhanvien: '1'
+      formDetail: {
+        nhanvien: undefined
       },
       lsNhanvien: [
         {
           value: '1',
-          name: 'Thẻ IC'
+          name: 'Hà Thanh Vân'
         }
       ],
       data: [
         {
           rowIndex: '1',
-          tram: 'Trạm B',
+          tram: 'Trung tâm điều hành',
           thietbi: 'Thẻ IC',
           soluongthe: '3,000'
+        }
+      ],
+      dataTotalCard: [
+        {
+          rowIndex: '1',
+          thietbi: 'Thẻ IC',
+          soluongtheton: '10,000',
+          soluongthehuy: '0',
+          tramduocgiao: 'Trạm A'
+        },
+        {
+          rowIndex: '2',
+          thietbi: 'Thẻ IC',
+          soluongtheton: '15,000',
+          soluongthehuy: '0',
+          tramduocgiao: 'Trạm B'
+        },
+        {
+          rowIndex: '3',
+          thietbi: 'Thẻ IC',
+          soluongtheton: '15,000',
+          soluongthehuy: '0',
+          tramduocgiao: 'Trạm C'
+        },
+        {
+          rowIndex: '4',
+          thietbi: 'Thẻ IC',
+          soluongtheton: '12,000',
+          soluongthehuy: '200',
+          tramduocgiao: 'Trạm D'
         }
       ],
       dataDetail: [
         {
           rowIndex: '1',
-          thietbi: 'Thẻ IC',
-          soluong: '1,000',
-          nguoiduocgiao: 'Hà Thanh Vân'
+          nguoiduocgiao: 'Hà Thanh Vân',
+          soluongthe: '2,000'
         },
         {
           rowIndex: '2',
-          thietbi: 'Thẻ IC',
-          soluong: '2,000',
-          nguoiduocgiao: 'Trần Quốc Nghĩa'
+          nguoiduocgiao: 'Trần Quốc Nghĩa',
+          soluongthe: '1,500'
         },
         {
           rowIndex: '3',
-          thietbi: 'Thẻ IC',
-          soluong: '1,500',
-          nguoiduocgiao: 'Nguyễn Thị Hồng Vân'
+          nguoiduocgiao: 'Nguyễn Thị Hồng Vân',
+          soluongthe: '1,000'
         },
         {
           rowIndex: '4',
-          thietbi: 'Thẻ IC',
-          soluong: '1,200',
-          nguoiduocgiao: 'Lê Khánh Huy'
+          nguoiduocgiao: 'Lê Khánh Huy',
+          soluongthe: '1,200'
         }
+
       ]
     }
   },
@@ -218,11 +292,14 @@ export default {
       this.pagination = pagination
       this.getData()
     },
+    handleTableChangeTotalCard (pagination, filters, sorter) {
+      this.paginationTotalCard = pagination
+      this.getData()
+    },
     getData (value) {
       this.pagination = _merge(this.pagination, this.handlePaginationData(this.data))
-    },
-    clickMenu (item, key) {
-      console.log(item, key)
+      this.paginationDetail = _merge(this.paginationDetail, this.handlePaginationData(this.dataDetail))
+      this.paginationTotalCard = _merge(this.paginationTotalCard, this.handlePaginationData(this.dataTotalCard))
     }
 
   }
